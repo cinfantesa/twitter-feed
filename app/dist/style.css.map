@@ -1,0 +1,1 @@
+{"version":3,"sources":["FeedSearch.css"],"names":[],"mappings":"AAAA,sCACE,eAAgB,CAChB,gBACF","file":"style.css","sourcesContent":[".feedSearch button {\n  margin-top: 12px;\n  margin-left: 12px;\n}\n"]}

@@ -5,8 +5,7 @@ import { Container } from '@material-ui/core';
 
 import styles from './FeedSearch.css';
 
-const FeedSearch = ({ handleClick, handleUserNameChanged }): JSX.Element => {
-
+const FeedSearch = ({ handleClick, handleUserNameChanged }) => {
   return (
     <Container className={styles.feedSearch}>
       <TextField id="search" label="Type Twitter username" onChange={handleUserNameChanged}></TextField>
