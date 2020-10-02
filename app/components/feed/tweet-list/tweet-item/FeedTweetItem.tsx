@@ -4,18 +4,18 @@ import { ListItem, ListItemAvatar, Avatar, ListItemText } from '@material-ui/cor
 import PersonIcon from '@material-ui/icons/Person';
 
 type TweetItemProps = {
-  name: string,
+  createdAt: string,
   message: string
 }
 
-const FeedTweetItem = ({ name, message }: TweetItemProps) =>
+const FeedTweetItem = ({ createdAt, message }: TweetItemProps) =>
   <ListItem alignItems="flex-start">
     <ListItemAvatar>
       <Avatar>
         <PersonIcon/>
       </Avatar>
     </ListItemAvatar>
-    <ListItemText primary={name} secondary={message} />
+    <ListItemText primary={createdAt} secondary={message} />
   </ListItem>;
 
 export default FeedTweetItem;
