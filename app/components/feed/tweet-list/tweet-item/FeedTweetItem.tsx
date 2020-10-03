@@ -5,7 +5,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 
 import styles from './FeedTweetItem.css';
 
-const FeedTweetItem = (tweet) => {
+const FeedTweetItem = ({ tweet }) => {
   return <ListItem className={styles.feedTweetItem}>
     <ListItemAvatar>
       <Avatar>
