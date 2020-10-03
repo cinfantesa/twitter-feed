@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 import FeedSearch from './search/FeedSearch';
 import FeedTweetList from './tweet-list/FeedTweetList';
 import axios from 'axios';
+
+import styles from './Feed.css';
 
 const apiUrl = 'https://api.twitter.com/2/tweets/search/recent?max_results=100&tweet.fields=author_id,created_at,public_metrics,referenced_tweets,text';
 const token = 'AAAAAAAAAAAAAAAAAAAAABi9IAEAAAAA5TYXrEn09cmwjn5WVcB4A8V0zHE%3DjvBXrFsNx34h7GzjKH3m1xHzPXfJmpuRw6Jc3Gahx4OtDLjl66';
 
 const Feed = (): JSX.Element =>{
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('alejandro_such');
   const [tweets, setTweets] = useState([]);
 
   const handleUserNameChanged = event => setUsername(event.target.value);
@@ -26,11 +28,11 @@ const Feed = (): JSX.Element =>{
 
 
   return (
-    <Container maxWidth="sm">
+    <Box className={styles.feedBox}>
       <h1>Check your last 100 tweets</h1>
       <FeedSearch handleClick={handleFind} handleUserNameChanged={handleUserNameChanged} />
       <FeedTweetList tweets={tweets} />
-    </Container>
+    </Box>
   );
 }
 
