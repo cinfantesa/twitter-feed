@@ -27,10 +27,9 @@ const Feed = () => {
     .catch(() => setTweets(null));
   };
 
-
   return (
     <Box className={styles.feedBox}>
-      <h1>Check your last 100 tweets</h1>
+      <h1>Check your last tweets</h1>
       <FeedSearch
         handleClick={handleFind}
         handleUserNameChanged={handleUserNameChanged} />
