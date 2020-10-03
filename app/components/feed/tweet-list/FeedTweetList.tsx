@@ -4,12 +4,14 @@ import FeedTweetItem from './tweet-item/FeedTweetItem';
 
 import styles from './FeedTweetList.css';
 
+
 const FeedTweetList = ({ tweets }) => {
   if (!tweets) {
     return (<p>No results found, check your username</p>);
   }
 
-  const renderedTweets = tweets.map(tweet => <FeedTweetItem {...tweet} key={tweet.createdAt} />);
+  const renderedTweets = tweets.map(tweet => <FeedTweetItem {...tweet} key={tweet.formmattedCreatedAt} />);
+
   return (
     <List className={styles.feedList}>
       { renderedTweets }

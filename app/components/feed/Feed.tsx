@@ -5,6 +5,7 @@ import FeedTweetList from './tweet-list/FeedTweetList';
 import axios from 'axios';
 
 import styles from './Feed.css';
+import Tweet from '../../domain/Tweet';
 
 const apiUrl = 'https://api.twitter.com/2/tweets/search/recent?max_results=100&tweet.fields=author_id,created_at,public_metrics,referenced_tweets,text';
 const token = 'AAAAAAAAAAAAAAAAAAAAABi9IAEAAAAA5TYXrEn09cmwjn5WVcB4A8V0zHE%3DjvBXrFsNx34h7GzjKH3m1xHzPXfJmpuRw6Jc3Gahx4OtDLjl66';
@@ -21,7 +22,10 @@ const Feed = () => {
       params: { query: `from:${username}` }
     })
     .then(result => {
-      const parsedResult = result.data.data.map(it => { return { createdAt: it.created_at, message: it.text }});
+      const parsedResult = result.data.data.map(it => {
+        const { created_at, text } = it;
+        return new Tweet(created_at, text);
+      });
       setTweets(parsedResult);
     })
     .catch(() => setTweets(null));

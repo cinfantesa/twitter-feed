@@ -5,14 +5,16 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 
 import styles from './FeedTweetItem.css';
 
-const FeedTweetItem = ({ createdAt, message }) =>
-  <ListItem className={styles.feedTweetItem}>
+const FeedTweetItem = (tweet) => {
+  return <ListItem className={styles.feedTweetItem}>
     <ListItemAvatar>
       <Avatar>
         <TwitterIcon/>
       </Avatar>
     </ListItemAvatar>
-    <ListItemText primary={createdAt} secondary={message} />
-  </ListItem>;
+    <ListItemText primary={tweet.formmattedCreatedAt} secondary={tweet.message}/>
+  </ListItem>
+};
+
 
 export default FeedTweetItem;
