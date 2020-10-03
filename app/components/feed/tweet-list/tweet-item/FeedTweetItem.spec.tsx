@@ -1,12 +1,12 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 import Tweet from '../../../../domain/Tweet';
-import FeedTweetItem from "./FeedTweetItem";
+import FeedTweetItem from './FeedTweetItem';
 
 let container = null;
 beforeEach(() => {
-  container = document.createElement("div");
+  container = document.createElement('div');
   document.body.appendChild(container);
 });
 

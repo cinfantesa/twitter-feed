@@ -1,12 +1,12 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 import Tweet from '../../../domain/Tweet';
-import FeedTweetList from "./FeedTweetList";
+import FeedTweetList from './FeedTweetList';
 
 let container = null;
 beforeEach(() => {
-  container = document.createElement("div");
+  container = document.createElement('div');
   document.body.appendChild(container);
 });
 
@@ -32,7 +32,6 @@ test('FeedTweetList should render empty list', () => {
     render(<FeedTweetList tweets={tweets} />, container);
   });
 
-  console.log(container.outerHTML)
   expect(container.querySelector('.feedTweetItem')).toBeNull();
 });
 
@@ -42,5 +41,5 @@ test('FeedTweetList should render list', () => {
     render(<FeedTweetList tweets={tweets} />, container);
   });
 
-  expect(container.querySelector('.feedTweetItem')).toBe(1);
+  expect(container.querySelectorAll('.MuiListItemText-primary').length).toBe(1);
 });
