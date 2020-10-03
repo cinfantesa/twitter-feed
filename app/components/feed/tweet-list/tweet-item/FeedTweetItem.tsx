@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { ListItem, ListItemAvatar, Avatar, ListItemText } from '@material-ui/core';
-import PersonIcon from '@material-ui/icons/Person';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 const FeedTweetItem = ({ createdAt, message }) =>
   <ListItem alignItems="flex-start">
     <ListItemAvatar>
       <Avatar>
-        <PersonIcon/>
+        <TwitterIcon/>
       </Avatar>
     </ListItemAvatar>
     <ListItemText primary={createdAt} secondary={message} />
