@@ -16,30 +16,31 @@ afterEach(() => {
   container = null;
 });
 
-test('FeedTweetList should render error message when no tweets', () => {
-  act(() => {
-    const tweets = null;
-    render(<FeedTweetList tweets={tweets} />, container);
+describe('FeedTweetList', () => {
+  test('should render error message when no tweets', () => {
+    act(() => {
+      const tweets = null;
+      render(<FeedTweetList tweets={tweets} />, container);
+    });
+
+    expect(container.querySelector('p').textContent).toBe('No results found, check your username');
   });
 
-  expect(container.querySelector('p').textContent).toBe('No results found, check your username');
-});
+  test('should render empty list', () => {
+    act(() => {
+      const tweets = [];
+      render(<FeedTweetList tweets={tweets} />, container);
+    });
 
-
-test('FeedTweetList should render empty list', () => {
-  act(() => {
-    const tweets = [];
-    render(<FeedTweetList tweets={tweets} />, container);
+    expect(container.querySelector('.feedTweetItem')).toBeNull();
   });
 
-  expect(container.querySelector('.feedTweetItem')).toBeNull();
-});
+  test('should render list', () => {
+    act(() => {
+      const tweets = [new Tweet('2020-09-30T21:29:58.000Z', 'Message')];
+      render(<FeedTweetList tweets={tweets} />, container);
+    });
 
-test('FeedTweetList should render list', () => {
-  act(() => {
-    const tweets = [new Tweet('2020-09-30T21:29:58.000Z', 'Message')];
-    render(<FeedTweetList tweets={tweets} />, container);
+    expect(container.querySelectorAll('.MuiListItemText-primary').length).toBe(1);
   });
-
-  expect(container.querySelectorAll('.MuiListItemText-primary').length).toBe(1);
 });

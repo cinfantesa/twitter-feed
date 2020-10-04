@@ -16,22 +16,24 @@ afterEach(() => {
   container = null;
 });
 
-test('FeedTweetItem should renders with message and current time', () => {
-  act(() => {
-    const tweet = new Tweet(null, 'Message');
-    render(<FeedTweetItem tweet={tweet} />, container);
+describe('FeedTweetItem', () => {
+  test('should renders with message and current time', () => {
+    act(() => {
+      const tweet = new Tweet(null, 'Message');
+      render(<FeedTweetItem tweet={tweet} />, container);
+    });
+
+    expect(container.querySelector('.MuiListItemText-secondary').textContent).toBe('Message');
+    expect(container.querySelector('.MuiListItemText-primary').textContent).not.toBeNull();
   });
 
-  expect(container.querySelector('.MuiListItemText-secondary').textContent).toBe('Message');
-  expect(container.querySelector('.MuiListItemText-primary').textContent).not.toBeNull();
-});
+  test('should renders with empty message and given time', () => {
+    act(() => {
+      const tweet = new Tweet('2020-09-30T21:29:58.000Z', null);
+      render(<FeedTweetItem tweet={tweet} />, container);
+    });
 
-test('FeedTweetItem should renders with empty message and given time', () => {
-  act(() => {
-    const tweet = new Tweet('2020-09-30T21:29:58.000Z', null);
-    render(<FeedTweetItem tweet={tweet} />, container);
+    expect(container.querySelector('.MuiListItemText-secondary')).toBeNull();
+    expect(container.querySelector('.MuiListItemText-primary').textContent).not.toBeNull();
   });
-
-  expect(container.querySelector('.MuiListItemText-secondary')).toBeNull();
-  expect(container.querySelector('.MuiListItemText-primary').textContent).not.toBeNull();
 });
