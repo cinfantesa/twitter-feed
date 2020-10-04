@@ -19,7 +19,7 @@ I divided the application in the following components:
  * FeedTweetItem: It is the representation of a tweet, so it only receives the tweet info.
 
 ## Testing strategy
-I write only test to validate inputs and outputs of each component. It means that i check the following:
+I write tests to validate inputs and outputs of each component. It means that i check the following:
 * A component renders correctly for given props.
 * A component dispatch right events.
 
