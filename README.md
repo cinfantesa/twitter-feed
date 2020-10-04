@@ -3,7 +3,11 @@
 I build this solution over https://electron-react-boilerplate.js.org just to focus on the react development.
 
 ## Considerations
-Redux is configured by electron-react-boilerplate but i prefer to use react reducers due to easy of use.
+Redux is configured by electron-react-boilerplate but i prefer to use react reducers due to easy of use. So I removed redux configuration from boilerplate.
+
+I removed Router configuration from boilerplate.
+
+The twitter api v2 only returns tweets in the last week. By default I am retrieving last 100 tweets in the last week.
 
 Written code is in the following folders:
 * app/domain: our domains classes, in this exercise we only have Tweet domain class
