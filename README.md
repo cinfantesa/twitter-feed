@@ -31,3 +31,10 @@ You can find spec files in the same folder where the component is.
 
 ## Continuous integration
 Added a github action workflow just to check that code compiles and tests passes.
+
+## Running
+To run the project just clone this repo and install dependencies
+> yarn install
+
+Now, you can start the app using
+> yarn dev
